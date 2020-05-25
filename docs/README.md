@@ -5,7 +5,9 @@ This version of the connector is designed to be engaged in the user self-registr
 Server. When a user is registered to IS, we lock the user account and send a verification request to Evident. Then 
 Evident will send an email to the user with instructions on how to submit the required documents/photos to complete 
 the verification. Once the user submits data, Evident will process and verify the identity of the user.
+
 ![Design Diagram](img/design.png "Design Diagram")
+
 Whenever the user is trying to login to his/her newly created account, WSO2 IS checks with Evident whether the 
 identity verification has been completed or not, if the user account in the locked state. If the verification is 
 finished, IS will unlock the user account and let the user login.
@@ -25,7 +27,6 @@ the correct version of the [Identity Server](https://wso2.com/identity-and-acces
     [[event_handler]]
     name = "evidentEventHandler"
     subscriptions =["POST_ADD_USER", "PRE_AUTHENTICATION"]
-    
     ```
 4. (Optional Step) For additional debugging purposes, you can enable debug logs for the connector. Add the following 
 configurations to the ```<IS-HOME>/repository/conf/log4j2.properties``` file.
